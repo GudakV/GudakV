@@ -1,6 +1,8 @@
 import {Link, Route, Routes} from "react-router-dom";
 import Todos from "./components/todos";
 import Albums from "./components/albums";
+import Comments from "./components/comments";
+import PostDetails from "./components/postDetails";
 
 const App = () => {
     return (
@@ -13,6 +15,9 @@ const App = () => {
                     </li>
                     <li>
                         <Link to={'/albums'}>albums</Link>
+                    </li>
+                    <li>
+                        <Link to={'/comments'}>comments</Link>
                     </li>
 
                 </ul>
@@ -27,7 +32,10 @@ const App = () => {
                     <Route
                         path={'/albums'} element={<Albums/>}>
                     </Route>
-
+                    <Route
+                        path={'/comments'} element={<Comments/>}>
+                        <Route path={':id'} element={<PostDetails/>}></Route>
+                    </Route>
                 </Routes>
             </div>
         </div>
